@@ -25,8 +25,11 @@ from sklearn.metrics import accuracy_score, f1_score, recall_score, precision_sc
 
 """# Importing Data"""
 
-data = pd.read_csv(r"Password Strength.csv", on_bad_lines='skip')
+@st.cache_data
+def load_data():
+ return pd.read_csv(r'Password_Strength.csv', on_bad_lines='skip')
 
+data = load_data()
 # we are using "on_bad_lines" to skip the line where it cannot
 # be parsed or have some other issue that prevents them from being processed as expected.
 
