@@ -16,7 +16,7 @@ import random
 import numpy as np
 import pandas as pd
 import seaborn as sns
-
+import stremlit as st 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
@@ -110,7 +110,7 @@ test_acc_1
 
 """# Data Validation"""
 
-user_inp = input()
+user_inp = st.text_input("Enter password here")
 user_inp = np.array([user_inp])
 user_inp = vec.transform(user_inp)
 
