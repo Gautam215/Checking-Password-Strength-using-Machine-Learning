@@ -113,10 +113,17 @@ test_acc_1
 
 """# Data Validation"""
 
+st.title("Password Strength Checker")
 user_inp = st.text_input("Enter password here")
-user_inp = np.array([user_inp])
-user_inp = vec.transform(user_inp)
 
-y_pred = gb_model.predict(user_inp)
-
-print(y_pred)
+if st.button("Check Strength"):
+    if user_inp:
+        transformed_inp = vec.transform([user_inp])
+        y_pred = gb_model.predict(transformed_inp)[0]
+        
+        if y_pred == 0:
+            st.error("Weak Password")
+        elif y_pred == 1:
+            st.warning("Medium Password")
+        else:
+            st.success("Strong Password")
