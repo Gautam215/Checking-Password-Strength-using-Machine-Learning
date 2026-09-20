@@ -102,10 +102,13 @@ print(train_acc)
 
 from sklearn.ensemble import GradientBoostingClassifier
 
-gb_model = GradientBoostingClassifier()
+@st.cache_resource
+def get_gb_model(x_train, y_train):
+    model = GradientBoostingClassifier()
+    model.fit(x_train, y_train)
+    return model
 
-gb_model.fit(x_train, y_train)
-
+gb_model = get_gb_model(x_train, y_train)
 y_pred_gb = gb_model.predict(x_test)
 
 test_acc_1 = accuracy_score(y_test, y_pred_gb)
