@@ -1,6 +1,6 @@
 # Checking-Password-Strength-using-Machine-Learning
  
-This is a Python code for building a machine learning model to predict the strength of passwords based on their character-level features. The model is trained on a dataset of passwords labeled as weak, medium, or strong and uses logistic regression and gradient boosting algorithms for classification.
+This project predicts password strength from character-level features using the supplied dataset and a Logistic Regression classifier. The Streamlit app reuses its cached model across interactions.
 
 # Dataset
 
@@ -16,7 +16,7 @@ Strength of the password based on rules(such as containing digits, special symbo
 To convert the password strings into machine-readable features, we use the TF-IDF vectorizer at the character level. This converts each password into a vector of numerical features that capture the importance of each character in the password.
 
 # Model Training and Evaluation
-We split the dataset into training and testing sets and train two models, logistic regression and gradient boosting, on the training set. We evaluate the performance of the models on the testing set using metrics such as accuracy, precision, recall, and F1-score.
+The notebook splits the dataset into training and testing sets and evaluates Logistic Regression. The Streamlit app trains that sparse-compatible classifier on the available dataset once, then caches it for subsequent interactions.
 
 # Usage
 To use the password strength prediction model, simply run the Python code and input a password when prompted. The model will preprocess the password using the same vectorizer used for training the model and predict its strength category.
